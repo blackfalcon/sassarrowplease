@@ -1,0 +1,83 @@
+$position: right !default;
+
+@mixin arrow_box ($position) {
+	position: relative;
+	top: 100px;
+	background: #88b7d5;
+	border: 4px solid #c2e1f5;
+	margin: 0 auto;
+	padding: 40px;
+	width: 280px;
+	border-radius: 6px;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+	
+	&:after, &:before {
+		@if $position == top {
+			bottom: 100%;
+		}
+		@else if $position == right {
+			left: 100%;
+		}
+		@else if $position == bottom {
+			top: 100%;
+		}
+		@else if $position == left {
+			right: 100%;
+		}
+		
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;			
+	}
+	
+	&:after {
+		@if $position == top {
+			border-bottom-color: #88b7d5;
+			left: 50%;
+			margin-left: -30px;
+		}
+		@else if $position == right {
+			border-left-color: #88b7d5;
+			top: 50%;
+			margin-top: -30px;
+		}
+		@else if $position == bottom {
+			border-top-color: #88b7d5;
+			right: 50%;
+			margin-right: -30px;
+		}
+		@else if $position == left {
+			border-right-color: #88b7d5;
+			bottom: 50%;
+			margin-bottom: -30px;
+		}
+		border-width: 30px;
+	}
+	
+	&:before {
+		border-width: 36px;
+		@if $position == top {
+			border-bottom-color: #c2e1f5;
+			left: 50%;
+			margin-left: -36px;
+		}
+		@else if $position == right {
+			border-left-color: #c2e1f5;
+			top: 50%;
+			margin-top: -36px;
+		}
+		@else if $position == bottom {
+			border-top-color: #c2e1f5;
+			right: 50%;
+			margin-right: -36px;
+		}
+		@else if $position == left {
+			border-right-color: #c2e1f5;
+			bottom: 50%;
+			margin-bottom: -36px;
+		}
+	}
+}

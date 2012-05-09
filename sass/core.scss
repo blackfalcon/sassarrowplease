@@ -1,0 +1,10 @@
+@import "mixins";
+@import "typography";
+
+// -------------------------------------------------------
+
+$position: right;
+
+.arrow_box {
+	@include arrow_box(bottom);
+}

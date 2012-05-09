@@ -2,3 +2,4 @@ node_modules
 public-min
 *.log
 .DS_Store
+.sass-cache
